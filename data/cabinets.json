@@ -2,10 +2,10 @@
   "indexed": [
     {
       "key": "cabin-et",
-      "display_name": "Eastern Cabin'ét",
+      "display_name": "Eastern Cabin'\u00e9t",
       "desk": "Eastern (Rachel)",
       "github": {
-        "owner": "msdixon",
+        "owner": "wrong-answers",
         "repo": "wagscrum",
         "branch": "main",
         "manifest_path": "cabin-et/MANIFEST.md"
@@ -13,7 +13,7 @@
     },
     {
       "key": "journal-cabin-et",
-      "display_name": "Journal Cabin'ét",
+      "display_name": "Journal Cabin'\u00e9t",
       "desk": "Journal (Rachel)",
       "github": {
         "owner": "msdixon",
@@ -41,7 +41,7 @@
       "desk": "Pacific (Jim)",
       "note": "Jim's collision room on the wagscrum board. Indexed in spirit, owned across the wire. The meta-cabinet links out but does not list its roster.",
       "github": {
-        "owner": "msdixon",
+        "owner": "wrong-answers",
         "repo": "wagscrum",
         "branch": "main",
         "manifest_path": "pacific-cabinet/MANIFEST.md"

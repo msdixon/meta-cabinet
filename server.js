@@ -31,7 +31,7 @@ app.get('/api/cabinets', async (req, res) => {
 
   for (const cab of CABINETS.indexed) {
     try {
-      const { body, fromCache, stale, fetchedAt, error } = await fetchManifest(cab.github, { forceFresh });
+      const { body, fromCache, stale, fetchedAt, error } = await fetchManifest(cab.github, { forceFresh, cabinetKey: cab.key });
       const parsed = parseManifest(body);
       results.push({
         key: cab.key,
