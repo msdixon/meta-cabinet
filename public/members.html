@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Members · the meta-cabinet</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .members-controls { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 2rem; }
+    .members-search { flex: 1; min-width: 200px; padding: 0.5rem 0.75rem; border: 1px solid var(--ink); background: var(--paper); font-family: var(--mono); font-size: 0.85rem; color: var(--ink); }
+    .members-search:focus { outline: none; background: var(--paper-deep); }
+    .room-filter { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .room-filter button { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.4rem 0.7rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; }
+    .room-filter button.active { background: var(--ink); color: var(--paper); }
+    .room-filter button[data-room="cabin-et"].active        { background: var(--room-eastern); border-color: var(--room-eastern); }
+    .room-filter button[data-room="journal-cabin-et"].active { background: var(--room-journal); border-color: var(--room-journal); }
+    .room-filter button[data-room="secret-cabin-et"].active  { background: var(--room-secret);  border-color: var(--room-secret);  }
+    .bio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    figure.bio-card { margin: 0; border: 1px solid var(--ink); background: var(--paper); display: flex; flex-direction: column; transition: transform 0.18s ease, box-shadow 0.18s ease; position: relative; }
+    figure.bio-card:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
+    figure.bio-card[data-hidden="true"] { display: none; }
+    .card-crossref-badge { position: absolute; top: 0.6rem; right: 0.6rem; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; background: var(--ink); color: var(--paper); padding: 0.15rem 0.45rem; pointer-events: none; }
+    .card-portrait { width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: var(--paper-deep); border-bottom: 1px solid var(--ink); display: flex; align-items: center; justify-content: center; position: relative; }
+    .card-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+    .card-monogram { font-family: var(--serif); font-variation-settings: "opsz" 144, "SOFT" 20; font-weight: 300; font-size: 4.5rem; color: var(--paper); letter-spacing: -0.04em; user-select: none; text-shadow: 0 1px 8px rgba(0,0,0,0.15); line-height: 1; }
+    figcaption { padding: 1.25rem 1.25rem 1rem; display: flex; flex-direction: column; flex: 1; }
+    .card-name { font-family: var(--serif); font-variation-settings: "opsz" 72, "SOFT" 50; font-weight: 400; font-size: 1.3rem; letter-spacing: -0.015em; margin: 0 0 0.15rem; line-height: 1.2; }
+    .card-origin { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-soft); letter-spacing: 0.04em; margin-bottom: 0.85rem; }
+    .card-bio { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.55; margin: 0 0 1rem; flex: 1; }
+    .card-rooms { border-top: 1px solid var(--rule-faint); padding-top: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .card-room-row { display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 0.75rem; align-items: start; }
+    .card-room-chip { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.05em; padding: 0.15rem 0.45rem; border: 1px solid currentColor; color: var(--paper); white-space: nowrap; flex-shrink: 0; align-self: start; margin-top: 1px; }
+    .card-room-chip[data-room="cabin-et"]         { background: var(--room-eastern); }
+    .card-room-chip[data-room="journal-cabin-et"]  { background: var(--room-journal); }
+    .card-room-chip[data-room="secret-cabin-et"]   { background: var(--room-secret);  }
+    .card-room-detail { display: flex; flex-direction: column; gap: 0.1rem; }
+    .card-room-role { font-family: var(--mono); font-size: 0.7rem; color: var(--ink); letter-spacing: 0.03em; }
+    .card-room-utility { font-family: var(--serif); font-style: italic; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.4; }
+    .members-count { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-faint); margin-top: 1.5rem; }
+    .crossref-note { background: var(--paper-deep); border-left: 3px solid var(--ink); padding: 0.75rem 1rem; font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 2rem; line-height: 1.6; }
+    .crossref-note strong { color: var(--ink); font-weight: 500; }
+  </style>
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-mark">no. 03 · members</div>
+  <h1 class="masthead-title">the <em>members</em></h1>
+  <nav class="masthead-nav">
+    <a href="/">Landing</a>
+    <a href="/members" aria-current="page">Members</a>
+    <a href="/directory">Directory</a>
+  </nav>
+</header>
+<main>
+  <section>
+    <span class="overline">All members · all rooms</span>
+    <h2 class="section-title">Everyone on the bench.</h2>
+    <p class="section-blurb">Standing members and rotation pool across the three indexed rooms. Members appearing in more than one room are shown once, with both room assignments on the card. That's a feature.</p>
+    <div class="crossref-note" id="crossref-note" style="display:none">
+      <strong>Overlap filter active.</strong> Cards shown here appear in more than one room, tuned differently in each. Borges on the Eastern bench finds structure in game mechanics. Borges in the Journal finds labyrinths in a Tuesday. Same source; two registers.
+    </div>
+    <div class="members-controls">
+      <input type="search" id="members-search" class="members-search" placeholder="search name, origin, bio…" />
+      <div class="room-filter" id="room-filter">
+        <button data-room="all" class="active">All rooms</button>
+        <button data-room="cabin-et">Eastern</button>
+        <button data-room="journal-cabin-et">Journal</button>
+        <button data-room="secret-cabin-et">Secret</button>
+        <button data-room="crossref">Overlaps only</button>
+      </div>
+    </div>
+    <div id="bio-grid" class="bio-grid"></div>
+    <p class="members-count"><span id="members-shown">—</span> members shown.</p>
+  </section>
+</main>
+<footer>
+  <span>meta-cabinet · members · v0.1</span>
+  <a href="/">← landing</a>
+</footer>
+<script type="module">
+import { MEMBERS, ROOM_META } from '/js/members-data.js';
+import { fetchWikiThumb } from '/js/wiki-images.js';
+
+const grid = document.getElementById('bio-grid');
+const searchInput = document.getElementById('members-search');
+const roomFilterEl = document.getElementById('room-filter');
+const shownCount = document.getElementById('members-shown');
+const crossrefNote = document.getElementById('crossref-note');
+
+let activeRoom = 'all';
+let searchTerm = '';
+
+function initials(name) {
+  return name.split(/\s+/).filter(Boolean).map(w => w[0]).join('').slice(0, 2).toUpperCase();
+}
+
+function roomColor(key) {
+  const colors = { 'cabin-et': 'var(--room-eastern)', 'journal-cabin-et': 'var(--room-journal)', 'secret-cabin-et': 'var(--room-secret)' };
+  return colors[key] || 'var(--ink)';
+}
+
+function buildCard(m) {
+  const figure = document.createElement('figure');
+  figure.className = 'bio-card';
+  figure.dataset.key = m.key;
+  figure.dataset.rooms = m.rooms.map(r => r.cabinet).join(' ');
+  figure.dataset.crossref = m.rooms.length > 1 ? 'true' : 'false';
+
+  if (m.rooms.length > 1) {
+    const badge = document.createElement('div');
+    badge.className = 'card-crossref-badge';
+    badge.textContent = `${m.rooms.length} rooms`;
+    figure.appendChild(badge);
+  }
+
+  const portrait = document.createElement('div');
+  portrait.className = 'card-portrait';
+  portrait.style.background = m.monogram_color || roomColor(m.rooms[0]?.cabinet);
+  const mono = document.createElement('span');
+  mono.className = 'card-monogram';
+  mono.textContent = initials(m.name);
+  mono.dataset.initials = 'true';
+  portrait.appendChild(mono);
+  figure.appendChild(portrait);
+
+  const cap = document.createElement('figcaption');
+
+  const name = document.createElement('h3');
+  name.className = 'card-name';
+  name.textContent = m.name;
+  cap.appendChild(name);
+
+  const origin = document.createElement('div');
+  origin.className = 'card-origin';
+  origin.textContent = m.origin;
+  cap.appendChild(origin);
+
+  const bio = document.createElement('p');
+  bio.className = 'card-bio';
+  bio.textContent = m.bio;
+  cap.appendChild(bio);
+
+  const rooms = document.createElement('div');
+  rooms.className = 'card-rooms';
+  for (const r of m.rooms) {
+    const row = document.createElement('div');
+    row.className = 'card-room-row';
+    const chip = document.createElement('span');
+    chip.className = 'card-room-chip';
+    chip.dataset.room = r.cabinet;
+    chip.textContent = r.label;
+    row.appendChild(chip);
+    const detail = document.createElement('div');
+    detail.className = 'card-room-detail';
+    const role = document.createElement('span');
+    role.className = 'card-room-role';
+    role.textContent = r.role;
+    const utility = document.createElement('span');
+    utility.className = 'card-room-utility';
+    utility.textContent = r.utility;
+    detail.appendChild(role);
+    detail.appendChild(utility);
+    row.appendChild(detail);
+    rooms.appendChild(row);
+  }
+  cap.appendChild(rooms);
+  figure.appendChild(cap);
+
+  return { figure, portrait };
+}
+
+const cardMap = new Map();
+for (const m of MEMBERS) {
+  const { figure, portrait } = buildCard(m);
+  grid.appendChild(figure);
+  cardMap.set(m.key, { figure, portrait, member: m });
+}
+
+updateFilter();
+
+for (const m of MEMBERS) {
+  if (!m.wikipedia_title) continue;
+  const entry = cardMap.get(m.key);
+  if (!entry) continue;
+  fetchWikiThumb(m.wikipedia_title, 400).then(src => {
+    if (!src) return;
+    const img = document.createElement('img');
+    img.alt = m.name;
+    img.src = src;
+    img.onload = () => {
+      const mono = entry.portrait.querySelector('[data-initials]');
+      if (mono) mono.remove();
+      entry.portrait.appendChild(img);
+    };
+  });
+}
+
+function updateFilter() {
+  let shown = 0;
+  const isCrossref = activeRoom === 'crossref';
+  crossrefNote.style.display = isCrossref ? 'block' : 'none';
+  for (const m of MEMBERS) {
+    const entry = cardMap.get(m.key);
+    if (!entry) continue;
+    let visible = true;
+    if (activeRoom !== 'all') {
+      visible = isCrossref ? m.rooms.length > 1 : m.rooms.some(r => r.cabinet === activeRoom);
+    }
+    if (visible && searchTerm) {
+      const hay = `${m.name} ${m.origin} ${m.bio} ${m.rooms.map(r => r.utility + ' ' + r.label).join(' ')}`.toLowerCase();
+      visible = hay.includes(searchTerm);
+    }
+    entry.figure.dataset.hidden = visible ? 'false' : 'true';
+    if (visible) shown++;
+  }
+  shownCount.textContent = shown;
+}
+
+roomFilterEl.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    roomFilterEl.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeRoom = btn.dataset.room;
+    updateFilter();
+  });
+});
+
+searchInput.addEventListener('input', e => {
+  searchTerm = e.target.value.toLowerCase().trim();
+  updateFilter();
+});
+</script>
+</body>
+</html>

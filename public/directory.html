@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Directory · the meta-cabinet</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-mark">no. 02 · directory</div>
+  <h1 class="masthead-title">the <em>directory</em></h1>
+  <nav class="masthead-nav">
+    <a href="/">Landing</a>
+    <a href="/members">Members</a>
+    <a href="/directory" aria-current="page">Directory</a>
+  </nav>
+</header>
+<main>
+  <section>
+    <span class="overline">All members · all rooms</span>
+    <h2 class="section-title">Everyone on the bench, indexed.</h2>
+    <p class="section-blurb">Standing members and guest bench across the three rooms. Filter by room, role, or search by name. Each entry links to the character file in its home repo.</p>
+    <div class="directory-controls">
+      <input type="search" id="search" class="directory-search" placeholder="search by name or slot…" />
+      <div class="directory-filter" id="room-filter">
+        <button data-filter="all" class="active">All</button>
+      </div>
+      <div class="directory-filter" id="role-filter">
+        <button data-filter="all" class="active">All roles</button>
+        <button data-filter="standing">Standing</button>
+        <button data-filter="guest_bench">Guest bench</button>
+      </div>
+    </div>
+    <div id="directory-mount"><div class="loading">Reading the manifests</div></div>
+    <p style="font-family:var(--mono);font-size:0.72rem;color:var(--ink-faint);margin-top:2rem;"><span id="row-count">—</span> entries shown.</p>
+  </section>
+</main>
+<footer>
+  <span>meta-cabinet · directory · v0.1</span>
+  <span id="cache-status">cache: —</span>
+  <a href="#" id="refresh-link">refresh</a>
+</footer>
+<script src="/js/directory.js" type="module"></script>
+</body>
+</html>

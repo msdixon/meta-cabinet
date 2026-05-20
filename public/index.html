@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The meta-cabinet · index across the rooms</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-mark">no. 01 · index</div>
+  <h1 class="masthead-title">the <em>meta</em>-cabinet</h1>
+  <nav class="masthead-nav">
+    <a href="/" aria-current="page">Landing</a>
+    <a href="/members">Members</a>
+    <a href="/directory">Directory</a>
+  </nav>
+</header>
+<main>
+  <section>
+    <span class="overline">What this is</span>
+    <h2 class="section-title">A <em>card catalog</em> for the practice of bringing it to the room.</h2>
+    <p class="section-blurb">Across three rooms, the same practice runs in three registers: collision for shipping work, gloss for private journals, salon for the novel. Members move between rooms. Guest stars appear when a case calls for an angle the standing bench can't hold. This page is the index — who is where, who is in right now, and which voices recur.</p>
+  </section>
+  <section id="rooms">
+    <span class="overline">The rooms</span>
+    <h2 class="section-title">Three indexed, one neighboring.</h2>
+    <p class="section-blurb">The indexed rooms publish a <code style="font-family:var(--mono);font-size:0.85em;">MANIFEST.md</code> with a standing roster, an active board, and an optional guest bench. The neighboring room is Pacific's — acknowledged across the wire, owned at the other desk.</p>
+    <div id="room-grid" class="room-grid"><div class="loading">Reading the manifests</div></div>
+  </section>
+  <section id="now">
+    <span class="overline">In the room right now</span>
+    <h2 class="section-title">Current board arrangement, per room.</h2>
+    <p class="section-blurb">Each room declares who is seated for the current active context — a case, a session, a project. Guest stars are listed with their angle. Updated by editing the room's MANIFEST.</p>
+    <div id="now-panel" class="now-panel"><div class="loading">Reading the room</div></div>
+  </section>
+  <section id="crossrefs">
+    <span class="overline">Cross-references</span>
+    <h2 class="section-title">Voices appearing in more than one room.</h2>
+    <p class="section-blurb">A member who shows up in two rooms is tuned differently in each. The Borges of the Eastern Cabin'ét is a structuralist on game mechanics; the Borges of the Journal Cabin'ét finds labyrinths in a Tuesday. Same source, two registers.</p>
+    <div id="crossref-list" class="crossref-list"><div class="loading">Computing recurrences</div></div>
+  </section>
+</main>
+<footer>
+  <span>meta-cabinet · index · v0.1</span>
+  <span id="cache-status">cache: —</span>
+  <a href="#" id="refresh-link">refresh</a>
+</footer>
+<script src="/js/landing.js" type="module"></script>
+</body>
+</html>

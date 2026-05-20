@@ -1,0 +1,18 @@
+{
+  "name": "meta-cabinet",
+  "version": "0.1.0",
+  "description": "Index across Rachel's three rooms — Eastern Cabin'ét, Journal Cabin'ét, Secret-Cabin-et.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

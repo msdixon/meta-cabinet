@@ -1,0 +1,51 @@
+{
+  "indexed": [
+    {
+      "key": "cabin-et",
+      "display_name": "Eastern Cabin'ét",
+      "desk": "Eastern (Rachel)",
+      "github": {
+        "owner": "msdixon",
+        "repo": "wagscrum",
+        "branch": "main",
+        "manifest_path": "cabin-et/MANIFEST.md"
+      }
+    },
+    {
+      "key": "journal-cabin-et",
+      "display_name": "Journal Cabin'ét",
+      "desk": "Journal (Rachel)",
+      "github": {
+        "owner": "msdixon",
+        "repo": "dossier-placard",
+        "branch": "main",
+        "manifest_path": "MANIFEST.md"
+      }
+    },
+    {
+      "key": "secret-cabin-et",
+      "display_name": "Secret-Cabin-et",
+      "desk": "Secret (Rachel)",
+      "github": {
+        "owner": "msdixon",
+        "repo": "secret-cabinet",
+        "branch": "main",
+        "manifest_path": "MANIFEST.md"
+      }
+    }
+  ],
+  "neighboring": [
+    {
+      "key": "pacific-cabinet",
+      "display_name": "Pacific cabinet",
+      "desk": "Pacific (Jim)",
+      "note": "Jim's collision room on the wagscrum board. Indexed in spirit, owned across the wire. The meta-cabinet links out but does not list its roster.",
+      "github": {
+        "owner": "msdixon",
+        "repo": "wagscrum",
+        "branch": "main",
+        "manifest_path": "pacific-cabinet/MANIFEST.md"
+      }
+    }
+  ]
+}
