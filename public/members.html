@@ -179,20 +179,55 @@ for (const m of MEMBERS) {
 updateFilter();
 
 for (const m of MEMBERS) {
-  if (!m.wikipedia_title) continue;
   const entry = cardMap.get(m.key);
   if (!entry) continue;
-  fetchWikiThumb(m.wikipedia_title, 400).then(src => {
-    if (!src) return;
-    const img = document.createElement('img');
-    img.alt = m.name;
-    img.src = src;
-    img.onload = () => {
-      const mono = entry.portrait.querySelector('[data-initials]');
-      if (mono) mono.remove();
-      entry.portrait.appendChild(img);
-    };
-  });
+
+  const localImages = m.images || [];
+
+  if (localImages.length > 0) {
+    // local images — set first, cycle remainder on hover
+    setPortraitImage(entry.portrait, localImages[0], m.name);
+    if (localImages.length > 1) {
+      let idx = 0;
+      entry.portrait.addEventListener('mouseenter', () => {
+        idx = (idx + 1) % localImages.length;
+        swapPortraitImage(entry.portrait, localImages[idx], m.name);
+      });
+    }
+  } else if (m.wikipedia_title) {
+    // no local image — try Wikipedia
+    fetchWikiThumb(m.wikipedia_title, 400).then(src => {
+      if (src) setPortraitImage(entry.portrait, src, m.name);
+    });
+  }
+  // else: monogram stays
+}
+
+function setPortraitImage(portrait, src, alt) {
+  const img = document.createElement('img');
+  img.alt = alt;
+  img.src = src;
+  img.onload = () => {
+    const mono = portrait.querySelector('[data-initials]');
+    if (mono) mono.remove();
+    const existing = portrait.querySelector('img');
+    if (existing) existing.remove();
+    portrait.appendChild(img);
+  };
+}
+
+function swapPortraitImage(portrait, src, alt) {
+  const img = document.createElement('img');
+  img.alt = alt;
+  img.src = src;
+  img.style.opacity = '0';
+  img.style.transition = 'opacity 0.4s ease';
+  img.onload = () => {
+    const existing = portrait.querySelector('img');
+    portrait.appendChild(img);
+    requestAnimationFrame(() => { img.style.opacity = '1'; });
+    if (existing) setTimeout(() => existing.remove(), 450);
+  };
 }
 
 function updateFilter() {
