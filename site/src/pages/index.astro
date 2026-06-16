@@ -1,0 +1,175 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import landing from '../data/landing.json';
+import transcript from '../data/transcript.json';
+
+const rooms = await getCollection('rooms');
+rooms.sort((a, b) => a.data.order - b.data.order);
+
+const roomsWithContent = await Promise.all(
+  rooms.map(async (room) => {
+    const { Content } = await room.render();
+    return { data: room.data, Content };
+  })
+);
+
+function renderText(text: string) {
+  return text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+}
+---
+
+<Base>
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div>
+      <div class="masthead-kicker">{landing.mastheadKicker}</div>
+      <h1>The <em>Meta-Cabinet</em></h1>
+    </div>
+    <div class="masthead-meta">
+      {landing.mastheadLocation}<br />
+      Maintained by <a href={landing.mastheadMaintainerUrl}>{landing.mastheadMaintainedBy}</a><br />
+      <a href={landing.mastheadGithubUrl}>{landing.mastheadGithubUrl.replace('https://', '')}</a><br />
+      Est. {landing.mastheadEst}
+    </div>
+  </header>
+
+  <!-- LEDE -->
+  <div class="lede-band">
+    <p>
+      Here's the team of voices in collision rooms that help Rachel&nbsp;&amp;&nbsp;collaborators
+      build, research, and create better. Any resemblance to humans real or imagined
+      is <em>aspirational.</em>
+    </p>
+    <p class="lede-attribution">
+      {landing.ledeAttribution.prefix}<a href={landing.ledeAttribution.linkUrl} target="_blank" rel="noopener">{landing.ledeAttribution.linkText}</a>{landing.ledeAttribution.suffix}
+    </p>
+  </div>
+
+  <div class="content">
+
+    <!-- CONTEXT -->
+    <div class="section-head">
+      <h2>Context</h2>
+      <span class="section-note">What this is / provenance</span>
+    </div>
+
+    <div class="context-block">
+      <div class="context-cell">
+        <h3>What this is</h3>
+        <p>Three locally-running applications that use large language models to build named, voiced advisory rooms for building, making, and research. The question driving them isn't "how do I make agents do more things" — it's closer to what <a href="https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04" target="_blank" rel="noopener">the Gastown experiments</a> gestured at, pointed differently: what if the room was for ideas? A writer's room. A good scrum. Something generative rather than extractive.</p>
+        <p>The voices are fictional, historical, imagined. They are made to have distinct gifts and genuine points of view. The best things come out when they're all in the room at once — agreeing, disagreeing, rambling, challenging, colliding on something worth playing with. That's the design.</p>
+        <p>Some of what's described here is further along than the repos suggest. The east/west collaboration process, the question of what good creative process actually feels like in this moment, and the <a href="#room-iii">playable archive</a> idea behind the Secret-Cabinet all have more life than they currently have URLs. This page is a timestamp on when the tinkering started and where it was on a given day.</p>
+        <p>Part of a larger set of projects at <a href="https://racheldixon.com" target="_blank" rel="noopener">racheldixon.com</a> and the nascent <a href="https://github.com/msdixon/wagscrum" target="_blank" rel="noopener">Wrong Answers Game Studio</a>.</p>
+      </div>
+      <div class="context-cell">
+        <h3>Collaboration</h3>
+        <p><a href="https://www.funderdevelopment.com" target="_blank" rel="noopener">Jim Toepel at funderdevelopment</a> is the Pacific desk — NYC to LA, two studios, one shared case board. The meta-cabinet is one artifact of that collaboration, but the collaboration itself is the bigger experiment: a structured, documented, cross-coast creative process between two humans using AI-assisted workflows, actively trying to figure out what good actually feels like. It's generative, it's fun, and we don't see it demonstrated anywhere else quite like this. The <a href="https://github.com/msdixon/wagscrum" target="_blank" rel="noopener">wagscrum board</a> is where that lives.</p>
+        <h3 style="margin-top: 1.4rem;">On the AI question</h3>
+        <p>These rooms exist because putting a human face on a model — even a fictional one, even a historical one — changes what you get out of it. That is either a useful illusion or a real one.</p>
+        <p><em>Is it pure entertainment?</em> This is a question we ask often, and honestly one we may never answer. The PC, the iPhone, and the connected web didn't solve it either. We're in the conversation knowing full well we won't determine the answer. The jury is still out. These are tinkerings and experiments, not theses — and even then, we'd probably lean toward tinkering.</p>
+      </div>
+    </div>
+
+    <!-- THE PRACTICE -->
+    <div class="section-head">
+      <h2>The practice</h2>
+      <span class="section-note">How the rooms work</span>
+    </div>
+
+    <div class="practice-grid">
+      {landing.practiceGrid.map((cell) => (
+        <div class="practice-cell">
+          <h3>{cell.heading}</h3>
+          <p>{cell.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- THE ROOMS -->
+    <div class="section-head">
+      <h2>The rooms</h2>
+      <span class="section-note">Three active cabinets</span>
+    </div>
+
+    <div class="rooms">
+      {roomsWithContent.map(({ data, Content }) => (
+        <div class="room" id={data.anchor || undefined}>
+          <div class="room-header">
+            <div class="room-index">{data.index}</div>
+            <div class="room-title-block">
+              <h3>
+                {data.titleMain}<em>{data.titleSuffix}</em>
+                {data.tag && <span class="room-tag">{data.tag}</span>}
+              </h3>
+              <div class="room-sub">{data.sub}</div>
+            </div>
+            <div class="room-meta">
+              {data.metaLine1 && <>{data.metaLine1}<br /></>}
+              {data.metaLine2 && <>{data.metaLine2}<br /></>}
+              {data.githubUrl && <a href={data.githubUrl} target="_blank" rel="noopener">github ↗</a>}
+            </div>
+          </div>
+          <div class="room-body">
+            <div class="room-purpose">
+              <Content />
+            </div>
+            <div class="room-roster">
+              {data.rosterSections.map((section, i) => (
+                <>
+                  <div class:list={['roster-label', i > 0 ? 'roster-label-spaced' : '']}>{section.label}</div>
+                  <ul class="roster-list">
+                    {section.members.map((member) => (
+                      <li>
+                        <span class="member-name">{member.name}</span>
+                        <span class="member-role">{member.role}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- TRANSCRIPT -->
+    <div class="section-head">
+      <h2>{transcript.sectionTitle}</h2>
+      <span class="section-note">{transcript.sectionNote}</span>
+    </div>
+
+    <div class="excerpt-section">
+      <div class="excerpt-header">
+        <h3>{transcript.headerLabel}</h3>
+        <span class="excerpt-source">{transcript.source}</span>
+      </div>
+      <div class="excerpt-body">
+        <div class="excerpt-prompt">Source note: <em>{transcript.prompt}</em></div>
+        {transcript.entries.map((entry) => (
+          <div class="transcript-entry">
+            <div class="t-speaker">{entry.speaker}</div>
+            <div class="t-text" set:html={renderText(entry.text)} />
+          </div>
+        ))}
+        <div class="excerpt-note">{transcript.note}</div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-sig">{landing.footerSig}</div>
+    <nav class="footer-links" aria-label="External links">
+      {landing.footerLinks.map((link) => (
+        <a href={link.url} target="_blank" rel="noopener">{link.label}</a>
+      ))}
+    </nav>
+  </footer>
+</Base>
+
+<style>
+  .roster-label-spaced { margin-top: 1rem; }
+</style>

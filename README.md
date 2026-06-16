@@ -2,19 +2,19 @@
 
 > *A card catalog for the practice of bringing it to the room.*
 
-Index across the three rooms Rachel runs: **Eastern Cabin'ét**, **Journal Cabin'ét**, **Secret-Cabin-et**. Pacific's cabinet is a neighboring room — acknowledged across the wire, owned at the other desk.
+Index across the three rooms Rachel runs: **Eastern Cabin'ét**, **Journal Cabinet**, **Secret-Cabinet**. Pacific's cabinet is a neighboring room — acknowledged across the wire on the other side of the country. Two designer-maker-etc's and their instances, making things with an "agentic process" that is efficient AND entertaining as hell, to keep the work going, collaborative, consistent.
 
-This repo doesn't *contain* any cabinet. It indexes them. Each indexed cabinet publishes a `MANIFEST.md` in its home repo. The meta-cabinet fetches those manifests live from GitHub, parses them, and renders a landing page, members page, and directory.
+This repo doesn't *contain* any cabinet but it houses the index of current experiments that involve chaaracter-based idea generation. Each indexed cabinet publishes a `MANIFEST.md` in its home repo listing personas and their use across projects. The meta-cabinet fetches those manifests live from GitHub, parses them, and renders a landing page, members page, and directory. The hope is that finding overlaps, redundancies, and happy duplicatives will yield EVEN MOAR IDEAS. 
 
 ---
 
 ## Pages
 
-- **`/`** — landing: room cards, "in the room right now" per room, cross-references
+- **`/`** — landing: room cards, "who's in the room these days" per room, cross-references
 - **`/members`** — bio cards with portrait photos, origin, bio blurb, room assignments
 - **`/directory`** — filterable flat table sourced from the MANIFEST files
 
----
+<!-- ---
 
 ## Setup
 
@@ -24,7 +24,7 @@ cd meta-cabinet
 npm install
 cp .env.example .env
 npm run dev
-```
+``` -->
 
 Open `http://localhost:3133`. Requires Node 18+.
 
@@ -34,7 +34,7 @@ Open `http://localhost:3133`. Requires Node 18+.
 
 Each indexed cabinet's `MANIFEST.md` is fetched from GitHub raw on page load, cached server-side for 5 minutes. The parser reads the structured tables and frontmatter; the frontend renders from `/api/cabinets`.
 
-The members page (`/members`) is client-side only — member data lives in `public/js/members-data.js` and portrait photos load from Wikipedia's REST API.
+The members page (`/members`) is client-side only — member data lives in `public/js/members-data.js` and portrait photos load from Wikipedia's REST API where available.
 
 ---
 
@@ -58,7 +58,7 @@ Edit the `## In the room right now` block in the relevant room's `MANIFEST.md`. 
 
 ## Adding photos
 
-Member portraits load from Wikipedia's REST API for historical/real figures. Fictional characters show a styled monogram. To add a local image for any member:
+Member portraits load from Wikipedia's REST API for historical/real figures. Personas without open cc Wikidata photos show a styled monogram by default. To add a local image for any member:
 
 1. Drop a file at `public/images/<key>.jpg` (e.g. `public/images/lestat.jpg`)
 2. Add `image_url: '/images/lestat.jpg'` to that member's entry in `public/js/members-data.js`

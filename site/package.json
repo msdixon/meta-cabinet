@@ -1,0 +1,16 @@
+{
+  "name": "meta-cabinet-site",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tinacms dev -c \"astro dev\"",
+    "build": "tinacms build && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.16.0",
+    "@tinacms/cli": "^1.6.0",
+    "tinacms": "^2.0.0"
+  }
+}

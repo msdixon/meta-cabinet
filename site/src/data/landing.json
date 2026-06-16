@@ -1,0 +1,38 @@
+{
+  "mastheadKicker": "A Directory of Collision Rooms",
+  "mastheadLocation": "Brooklyn, New York",
+  "mastheadMaintainedBy": "Rachel Dixon",
+  "mastheadMaintainerUrl": "https://racheldixon.com",
+  "mastheadGithubUrl": "https://github.com/msdixon",
+  "mastheadEst": "2026",
+  "ledeAttribution": {
+    "prefix": "Collision-room practice adapted from work by ",
+    "linkText": "Jim Toepel at funderdevelopment",
+    "linkUrl": "https://www.funderdevelopment.com/team.html",
+    "suffix": " — who built the Pacific desk and proved the model works across a continent."
+  },
+  "practiceGrid": [
+    {
+      "heading": "Collision room",
+      "body": "A named group of distinct AI voices, each with a defined register and a genuine point of view. Not a panel of assistants — a writer’s room. The desk takes what the room produces."
+    },
+    {
+      "heading": "Voice, not chatbot",
+      "body": "Each member has a specific character — their idiom, their preoccupations, their blind spots. Borges doesn’t speak like Stringer Bell. That’s the point."
+    },
+    {
+      "heading": "The desk writes",
+      "body": "The rooms are read-only. They propose, push back, surface. The human at the desk writes the actual response, citing whose angle they took."
+    },
+    {
+      "heading": "The room compounds",
+      "body": "Different minds with different gifts, in the same room at the same time, produce something none of them would have alone. Agree, disagree, ramble, cut each other off — something comes out the other side. That’s the whole bet."
+    }
+  ],
+  "footerSig": "The meta-cabinet — Brooklyn, 2026",
+  "footerLinks": [
+    { "label": "racheldixon.com", "url": "https://racheldixon.com" },
+    { "label": "GitHub", "url": "https://github.com/msdixon" },
+    { "label": "Jim’s team", "url": "https://www.funderdevelopment.com/team.html" }
+  ]
+}
