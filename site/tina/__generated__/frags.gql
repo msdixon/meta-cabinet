@@ -1,0 +1,66 @@
+fragment LandingParts on Landing {
+  __typename
+  mastheadKicker
+  mastheadLocation
+  mastheadMaintainedBy
+  mastheadMaintainerUrl
+  mastheadGithubUrl
+  mastheadEst
+  ledeAttribution {
+    __typename
+    prefix
+    linkText
+    linkUrl
+    suffix
+  }
+  practiceGrid {
+    __typename
+    heading
+    body
+  }
+  footerSig
+  footerLinks {
+    __typename
+    label
+    url
+  }
+}
+
+fragment RoomsParts on Rooms {
+  __typename
+  order
+  index
+  titleMain
+  titleSuffix
+  tag
+  sub
+  metaLine1
+  metaLine2
+  githubUrl
+  anchor
+  rosterSections {
+    __typename
+    label
+    members {
+      __typename
+      name
+      role
+    }
+  }
+  body
+}
+
+fragment TranscriptParts on Transcript {
+  __typename
+  sectionTitle
+  sectionNote
+  headerLabel
+  source
+  prompt
+  entries {
+    __typename
+    speaker
+    text
+  }
+  note
+}

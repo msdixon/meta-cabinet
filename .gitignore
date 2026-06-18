@@ -5,3 +5,4 @@ node_modules/
 site/node_modules
 site/dist
 site/.tina/__generated__
+site/.env
