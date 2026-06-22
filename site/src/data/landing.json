@@ -31,8 +31,17 @@
   ],
   "footerSig": "The meta-cabinet — Brooklyn, 2026",
   "footerLinks": [
-    { "label": "racheldixon.com", "url": "https://racheldixon.com" },
-    { "label": "GitHub", "url": "https://github.com/msdixon" },
-    { "label": "Jim’s team", "url": "https://www.funderdevelopment.com/team.html" }
+    {
+      "label": "racheldixon.com",
+      "url": "https://racheldixon.com"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/msdixon"
+    },
+    {
+      "label": "funderdevelopment",
+      "url": "https://www.funderdevelopment.com/team.html"
+    }
   ]
 }
