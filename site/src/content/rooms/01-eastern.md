@@ -5,7 +5,7 @@ titleMain: The Cabin'
 titleSuffix: ét
 tag: Eastern
 sub: Wrong Answers Game Studio · Eastern Desk
-metaLine1: Founded 2026-05-06
+metaLine1: Founded 2026-05
 metaLine2: 6 standing voices
 githubUrl: 'https://github.com/msdixon/wagscrum'
 anchor: ''
