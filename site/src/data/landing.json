@@ -1,15 +1,15 @@
 {
   "mastheadKicker": "A Directory of Collision Rooms",
-  "mastheadLocation": "New York City and the Pacific Coast",
+  "mastheadLocation": "New York City",
   "mastheadMaintainedBy": "Rachel Dixon",
   "mastheadMaintainerUrl": "https://racheldixon.com",
   "mastheadGithubUrl": "https://github.com/msdixon",
   "mastheadEst": "2026",
   "ledeAttribution": {
-    "prefix": "Collision-room practice adapted from original work by ",
+    "prefix": "Provenance: the collision-room practice adapted from original work by ",
     "linkText": "Jim Toepel at funderdevelopment",
     "linkUrl": "https://www.funderdevelopment.com/team.html",
-    "suffix": "and morphed into this matrix for collaboration"
+    "suffix": ""
   },
   "context": {
     "whatThisIsHeading": "What this is",
