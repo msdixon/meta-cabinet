@@ -9,7 +9,7 @@
     "prefix": "Collision-room practice adapted from work by ",
     "linkText": "Jim Toepel at funderdevelopment",
     "linkUrl": "https://www.funderdevelopment.com/team.html",
-    "suffix": " — who built the Pacific desk and proved the model works across a continent."
+    "suffix": ""
   },
   "context": {
     "whatThisIsHeading": "What this is",
@@ -32,15 +32,15 @@
   "practiceGrid": [
     {
       "heading": "Collision room",
-      "body": "A named group of distinct AI voices, each with a defined register and a genuine point of view. Not a panel of assistants — a writer’s room. The desk takes what the room produces."
+      "body": "An imagined room of colliding, distinct AI voices, each with a defined register and a genuine point of view to work towards a common goal. Less a panel of assistants than a writer’s room and refinery, and a delightful way to watch the proverbial sausage get made."
     },
     {
       "heading": "Voice, not chatbot",
-      "body": "Each member has a specific character — their idiom, their preoccupations, their blind spots. Borges doesn’t speak like Stringer Bell. That’s the point."
+      "body": "Each member has a specific character — their idiomatic speech, preoccupations, blind spots, places they stumble. Borges doesn’t speak like Stringer Bell, and shouldn't."
     },
     {
-      "heading": "The desk writes",
-      "body": "The rooms are read-only. They propose, push back, surface. The human at the desk writes the actual response, citing whose angle they took."
+      "heading": "When a room convenes",
+      "body": "The rooms run a simulated conversation. They propose, push back, surface new ideas with each other, and bring findings to the human-in-the-loop. The human at the desk writes the actual response, citing which direction to take and what their collaborative counterparts can do next."
     },
     {
       "heading": "The room compounds",
@@ -49,8 +49,17 @@
   ],
   "footerSig": "The meta-cabinet — Brooklyn, 2026",
   "footerLinks": [
-    { "label": "racheldixon.com", "url": "https://racheldixon.com" },
-    { "label": "GitHub", "url": "https://github.com/msdixon" },
-    { "label": "Jim’s team", "url": "https://www.funderdevelopment.com/team.html" }
+    {
+      "label": "racheldixon.com",
+      "url": "https://racheldixon.com"
+    },
+    {
+      "label": "msdixon on GitHub",
+      "url": "https://github.com/msdixon"
+    },
+    {
+      "label": "funderdevelopment",
+      "url": "https://www.funderdevelopment.com/team.html"
+    }
   ]
 }
