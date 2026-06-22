@@ -11,6 +11,24 @@
     "linkUrl": "https://www.funderdevelopment.com/team.html",
     "suffix": " — who built the Pacific desk and proved the model works across a continent."
   },
+  "context": {
+    "whatThisIsHeading": "What this is",
+    "whatThisIs": [
+      "Three locally-running applications that use large language models to build named, voiced advisory rooms for building, making, and research. The question driving them isn't \"how do I make agents do more things\" — it's closer to what [the Gastown experiments](https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04) gestured at, pointed differently: what if the room was for ideas? A writer's room. A good scrum. Something generative rather than extractive.",
+      "The voices are fictional, historical, imagined. They are made to have distinct gifts and genuine points of view. The best things come out when they're all in the room at once — agreeing, disagreeing, rambling, challenging, colliding on something worth playing with. That's the design.",
+      "Some of what's described here is further along than the repos suggest. The east/west collaboration process, the question of what good creative process actually feels like in this moment, and the [playable archive](#room-iii) idea behind the Secret-Cabinet all have more life than they currently have URLs. This page is a timestamp on when the tinkering started and where it was on a given day.",
+      "Part of a larger set of projects at [racheldixon.com](https://racheldixon.com) and the nascent [Wrong Answers Game Studio](https://github.com/msdixon/wagscrum)."
+    ],
+    "collaborationHeading": "Collaboration",
+    "collaboration": [
+      "[Jim Toepel at funderdevelopment](https://www.funderdevelopment.com) is the Pacific desk — NYC to LA, two studios, one shared case board. The meta-cabinet is one artifact of that collaboration, but the collaboration itself is the bigger experiment: a structured, documented, cross-coast creative process between two humans using AI-assisted workflows, actively trying to figure out what good actually feels like. It's generative, it's fun, and we don't see it demonstrated anywhere else quite like this. The [wagscrum board](https://github.com/msdixon/wagscrum) is where that lives."
+    ],
+    "aiQuestionHeading": "On the AI question",
+    "aiQuestion": [
+      "These rooms exist because putting a human face on a model — even a fictional one, even a historical one — changes what you get out of it. That is either a useful illusion or a real one.",
+      "*Is it pure entertainment?* This is a question we ask often, and honestly one we may never answer. The PC, the iPhone, and the connected web didn't solve it either. We're in the conversation knowing full well we won't determine the answer. The jury is still out. These are tinkerings and experiments, not theses — and even then, we'd probably lean toward tinkering."
+    ]
+  },
   "practiceGrid": [
     {
       "heading": "Collision room",

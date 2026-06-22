@@ -100,6 +100,15 @@ type LandingLedeAttribution {
   suffix: String
 }
 
+type LandingContext {
+  whatThisIsHeading: String
+  whatThisIs: [String]
+  collaborationHeading: String
+  collaboration: [String]
+  aiQuestionHeading: String
+  aiQuestion: [String]
+}
+
 type LandingPracticeGrid {
   heading: String
   body: String
@@ -118,6 +127,7 @@ type Landing implements Node & Document {
   mastheadGithubUrl: String
   mastheadEst: String
   ledeAttribution: LandingLedeAttribution
+  context: LandingContext
   practiceGrid: [LandingPracticeGrid]
   footerSig: String
   footerLinks: [LandingFooterLinks]
@@ -140,6 +150,15 @@ input LandingLedeAttributionFilter {
   suffix: StringFilter
 }
 
+input LandingContextFilter {
+  whatThisIsHeading: StringFilter
+  whatThisIs: StringFilter
+  collaborationHeading: StringFilter
+  collaboration: StringFilter
+  aiQuestionHeading: StringFilter
+  aiQuestion: StringFilter
+}
+
 input LandingPracticeGridFilter {
   heading: StringFilter
   body: StringFilter
@@ -158,6 +177,7 @@ input LandingFilter {
   mastheadGithubUrl: StringFilter
   mastheadEst: StringFilter
   ledeAttribution: LandingLedeAttributionFilter
+  context: LandingContextFilter
   practiceGrid: LandingPracticeGridFilter
   footerSig: StringFilter
   footerLinks: LandingFooterLinksFilter
@@ -332,6 +352,15 @@ input LandingLedeAttributionMutation {
   suffix: String
 }
 
+input LandingContextMutation {
+  whatThisIsHeading: String
+  whatThisIs: [String]
+  collaborationHeading: String
+  collaboration: [String]
+  aiQuestionHeading: String
+  aiQuestion: [String]
+}
+
 input LandingPracticeGridMutation {
   heading: String
   body: String
@@ -350,6 +379,7 @@ input LandingMutation {
   mastheadGithubUrl: String
   mastheadEst: String
   ledeAttribution: LandingLedeAttributionMutation
+  context: LandingContextMutation
   practiceGrid: [LandingPracticeGridMutation]
   footerSig: String
   footerLinks: [LandingFooterLinksMutation]

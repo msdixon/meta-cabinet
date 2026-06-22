@@ -13,6 +13,15 @@ fragment LandingParts on Landing {
     linkUrl
     suffix
   }
+  context {
+    __typename
+    whatThisIsHeading
+    whatThisIs
+    collaborationHeading
+    collaboration
+    aiQuestionHeading
+    aiQuestion
+  }
   practiceGrid {
     __typename
     heading

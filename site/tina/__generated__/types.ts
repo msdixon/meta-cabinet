@@ -209,6 +209,16 @@ export type LandingLedeAttribution = {
   suffix?: Maybe<Scalars['String']['output']>;
 };
 
+export type LandingContext = {
+  __typename?: 'LandingContext';
+  whatThisIsHeading?: Maybe<Scalars['String']['output']>;
+  whatThisIs?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  collaborationHeading?: Maybe<Scalars['String']['output']>;
+  collaboration?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  aiQuestionHeading?: Maybe<Scalars['String']['output']>;
+  aiQuestion?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
 export type LandingPracticeGrid = {
   __typename?: 'LandingPracticeGrid';
   heading?: Maybe<Scalars['String']['output']>;
@@ -230,6 +240,7 @@ export type Landing = Node & Document & {
   mastheadGithubUrl?: Maybe<Scalars['String']['output']>;
   mastheadEst?: Maybe<Scalars['String']['output']>;
   ledeAttribution?: Maybe<LandingLedeAttribution>;
+  context?: Maybe<LandingContext>;
   practiceGrid?: Maybe<Array<Maybe<LandingPracticeGrid>>>;
   footerSig?: Maybe<Scalars['String']['output']>;
   footerLinks?: Maybe<Array<Maybe<LandingFooterLinks>>>;
@@ -252,6 +263,15 @@ export type LandingLedeAttributionFilter = {
   suffix?: InputMaybe<StringFilter>;
 };
 
+export type LandingContextFilter = {
+  whatThisIsHeading?: InputMaybe<StringFilter>;
+  whatThisIs?: InputMaybe<StringFilter>;
+  collaborationHeading?: InputMaybe<StringFilter>;
+  collaboration?: InputMaybe<StringFilter>;
+  aiQuestionHeading?: InputMaybe<StringFilter>;
+  aiQuestion?: InputMaybe<StringFilter>;
+};
+
 export type LandingPracticeGridFilter = {
   heading?: InputMaybe<StringFilter>;
   body?: InputMaybe<StringFilter>;
@@ -270,6 +290,7 @@ export type LandingFilter = {
   mastheadGithubUrl?: InputMaybe<StringFilter>;
   mastheadEst?: InputMaybe<StringFilter>;
   ledeAttribution?: InputMaybe<LandingLedeAttributionFilter>;
+  context?: InputMaybe<LandingContextFilter>;
   practiceGrid?: InputMaybe<LandingPracticeGridFilter>;
   footerSig?: InputMaybe<StringFilter>;
   footerLinks?: InputMaybe<LandingFooterLinksFilter>;
@@ -525,6 +546,15 @@ export type LandingLedeAttributionMutation = {
   suffix?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type LandingContextMutation = {
+  whatThisIsHeading?: InputMaybe<Scalars['String']['input']>;
+  whatThisIs?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  collaborationHeading?: InputMaybe<Scalars['String']['input']>;
+  collaboration?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  aiQuestionHeading?: InputMaybe<Scalars['String']['input']>;
+  aiQuestion?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type LandingPracticeGridMutation = {
   heading?: InputMaybe<Scalars['String']['input']>;
   body?: InputMaybe<Scalars['String']['input']>;
@@ -543,6 +573,7 @@ export type LandingMutation = {
   mastheadGithubUrl?: InputMaybe<Scalars['String']['input']>;
   mastheadEst?: InputMaybe<Scalars['String']['input']>;
   ledeAttribution?: InputMaybe<LandingLedeAttributionMutation>;
+  context?: InputMaybe<LandingContextMutation>;
   practiceGrid?: InputMaybe<Array<InputMaybe<LandingPracticeGridMutation>>>;
   footerSig?: InputMaybe<Scalars['String']['input']>;
   footerLinks?: InputMaybe<Array<InputMaybe<LandingFooterLinksMutation>>>;
@@ -588,7 +619,7 @@ export type TranscriptMutation = {
   note?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type LandingPartsFragment = { __typename: 'Landing', mastheadKicker?: string | null, mastheadLocation?: string | null, mastheadMaintainedBy?: string | null, mastheadMaintainerUrl?: string | null, mastheadGithubUrl?: string | null, mastheadEst?: string | null, footerSig?: string | null, ledeAttribution?: { __typename: 'LandingLedeAttribution', prefix?: string | null, linkText?: string | null, linkUrl?: string | null, suffix?: string | null } | null, practiceGrid?: Array<{ __typename: 'LandingPracticeGrid', heading?: string | null, body?: string | null } | null> | null, footerLinks?: Array<{ __typename: 'LandingFooterLinks', label?: string | null, url?: string | null } | null> | null };
+export type LandingPartsFragment = { __typename: 'Landing', mastheadKicker?: string | null, mastheadLocation?: string | null, mastheadMaintainedBy?: string | null, mastheadMaintainerUrl?: string | null, mastheadGithubUrl?: string | null, mastheadEst?: string | null, footerSig?: string | null, ledeAttribution?: { __typename: 'LandingLedeAttribution', prefix?: string | null, linkText?: string | null, linkUrl?: string | null, suffix?: string | null } | null, context?: { __typename: 'LandingContext', whatThisIsHeading?: string | null, whatThisIs?: Array<string | null> | null, collaborationHeading?: string | null, collaboration?: Array<string | null> | null, aiQuestionHeading?: string | null, aiQuestion?: Array<string | null> | null } | null, practiceGrid?: Array<{ __typename: 'LandingPracticeGrid', heading?: string | null, body?: string | null } | null> | null, footerLinks?: Array<{ __typename: 'LandingFooterLinks', label?: string | null, url?: string | null } | null> | null };
 
 export type RoomsPartsFragment = { __typename: 'Rooms', order: number, index?: string | null, titleMain: string, titleSuffix?: string | null, tag?: string | null, sub?: string | null, metaLine1?: string | null, metaLine2?: string | null, githubUrl?: string | null, anchor?: string | null, body?: any | null, rosterSections?: Array<{ __typename: 'RoomsRosterSections', label?: string | null, members?: Array<{ __typename: 'RoomsRosterSectionsMembers', name?: string | null, role?: string | null } | null> | null } | null> | null };
 
@@ -599,7 +630,7 @@ export type LandingQueryVariables = Exact<{
 }>;
 
 
-export type LandingQuery = { __typename?: 'Query', landing: { __typename: 'Landing', id: string, mastheadKicker?: string | null, mastheadLocation?: string | null, mastheadMaintainedBy?: string | null, mastheadMaintainerUrl?: string | null, mastheadGithubUrl?: string | null, mastheadEst?: string | null, footerSig?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, ledeAttribution?: { __typename: 'LandingLedeAttribution', prefix?: string | null, linkText?: string | null, linkUrl?: string | null, suffix?: string | null } | null, practiceGrid?: Array<{ __typename: 'LandingPracticeGrid', heading?: string | null, body?: string | null } | null> | null, footerLinks?: Array<{ __typename: 'LandingFooterLinks', label?: string | null, url?: string | null } | null> | null } };
+export type LandingQuery = { __typename?: 'Query', landing: { __typename: 'Landing', id: string, mastheadKicker?: string | null, mastheadLocation?: string | null, mastheadMaintainedBy?: string | null, mastheadMaintainerUrl?: string | null, mastheadGithubUrl?: string | null, mastheadEst?: string | null, footerSig?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, ledeAttribution?: { __typename: 'LandingLedeAttribution', prefix?: string | null, linkText?: string | null, linkUrl?: string | null, suffix?: string | null } | null, context?: { __typename: 'LandingContext', whatThisIsHeading?: string | null, whatThisIs?: Array<string | null> | null, collaborationHeading?: string | null, collaboration?: Array<string | null> | null, aiQuestionHeading?: string | null, aiQuestion?: Array<string | null> | null } | null, practiceGrid?: Array<{ __typename: 'LandingPracticeGrid', heading?: string | null, body?: string | null } | null> | null, footerLinks?: Array<{ __typename: 'LandingFooterLinks', label?: string | null, url?: string | null } | null> | null } };
 
 export type LandingConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -611,7 +642,7 @@ export type LandingConnectionQueryVariables = Exact<{
 }>;
 
 
-export type LandingConnectionQuery = { __typename?: 'Query', landingConnection: { __typename?: 'LandingConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'LandingConnectionEdges', cursor: string, node?: { __typename: 'Landing', id: string, mastheadKicker?: string | null, mastheadLocation?: string | null, mastheadMaintainedBy?: string | null, mastheadMaintainerUrl?: string | null, mastheadGithubUrl?: string | null, mastheadEst?: string | null, footerSig?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, ledeAttribution?: { __typename: 'LandingLedeAttribution', prefix?: string | null, linkText?: string | null, linkUrl?: string | null, suffix?: string | null } | null, practiceGrid?: Array<{ __typename: 'LandingPracticeGrid', heading?: string | null, body?: string | null } | null> | null, footerLinks?: Array<{ __typename: 'LandingFooterLinks', label?: string | null, url?: string | null } | null> | null } | null } | null> | null } };
+export type LandingConnectionQuery = { __typename?: 'Query', landingConnection: { __typename?: 'LandingConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'LandingConnectionEdges', cursor: string, node?: { __typename: 'Landing', id: string, mastheadKicker?: string | null, mastheadLocation?: string | null, mastheadMaintainedBy?: string | null, mastheadMaintainerUrl?: string | null, mastheadGithubUrl?: string | null, mastheadEst?: string | null, footerSig?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, ledeAttribution?: { __typename: 'LandingLedeAttribution', prefix?: string | null, linkText?: string | null, linkUrl?: string | null, suffix?: string | null } | null, context?: { __typename: 'LandingContext', whatThisIsHeading?: string | null, whatThisIs?: Array<string | null> | null, collaborationHeading?: string | null, collaboration?: Array<string | null> | null, aiQuestionHeading?: string | null, aiQuestion?: Array<string | null> | null } | null, practiceGrid?: Array<{ __typename: 'LandingPracticeGrid', heading?: string | null, body?: string | null } | null> | null, footerLinks?: Array<{ __typename: 'LandingFooterLinks', label?: string | null, url?: string | null } | null> | null } | null } | null> | null } };
 
 export type RoomsQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -666,6 +697,15 @@ export const LandingPartsFragmentDoc = gql`
     linkText
     linkUrl
     suffix
+  }
+  context {
+    __typename
+    whatThisIsHeading
+    whatThisIs
+    collaborationHeading
+    collaboration
+    aiQuestionHeading
+    aiQuestion
   }
   practiceGrid {
     __typename

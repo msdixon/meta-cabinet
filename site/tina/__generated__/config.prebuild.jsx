@@ -42,6 +42,37 @@ var config_default = defineConfig({
             ]
           },
           {
+            name: "context",
+            label: "Context section",
+            type: "object",
+            fields: [
+              { name: "whatThisIsHeading", label: '"What this is" heading', type: "string" },
+              {
+                name: "whatThisIs",
+                label: '"What this is" paragraphs (use *text* for italics, [text](url) for links)',
+                type: "string",
+                list: true,
+                ui: { component: "textarea" }
+              },
+              { name: "collaborationHeading", label: '"Collaboration" heading', type: "string" },
+              {
+                name: "collaboration",
+                label: '"Collaboration" paragraphs (use *text* for italics, [text](url) for links)',
+                type: "string",
+                list: true,
+                ui: { component: "textarea" }
+              },
+              { name: "aiQuestionHeading", label: '"On the AI question" heading', type: "string" },
+              {
+                name: "aiQuestion",
+                label: '"On the AI question" paragraphs (use *text* for italics, [text](url) for links)',
+                type: "string",
+                list: true,
+                ui: { component: "textarea" }
+              }
+            ]
+          },
+          {
             name: "practiceGrid",
             label: "Practice grid",
             type: "object",
