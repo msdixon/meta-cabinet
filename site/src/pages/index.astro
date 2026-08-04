@@ -14,13 +14,27 @@ const roomsWithContent = await Promise.all(
   })
 );
 
+const SAFE_URL_SCHEMES = ['http:', 'https:', 'mailto:'];
+
+function sanitizeUrl(url: string) {
+  const trimmed = url.trim();
+  if (trimmed.startsWith('#') || trimmed.startsWith('/')) return trimmed;
+  try {
+    const scheme = new URL(trimmed, 'https://placeholder.invalid').protocol;
+    return SAFE_URL_SCHEMES.includes(scheme) ? trimmed : '#';
+  } catch {
+    return '#';
+  }
+}
+
 function renderText(text: string) {
   return text
-    .replace(/\[(.*?)\]\((.*?)\)/g, (_match, label, url) =>
-      url.startsWith('#')
-        ? `<a href="${url}">${label}</a>`
-        : `<a href="${url}" target="_blank" rel="noopener">${label}</a>`
-    )
+    .replace(/\[(.*?)\]\((.*?)\)/g, (_match, label, url) => {
+      const safeUrl = sanitizeUrl(url);
+      return safeUrl.startsWith('#')
+        ? `<a href="${safeUrl}">${label}</a>`
+        : `<a href="${safeUrl}" target="_blank" rel="noopener">${label}</a>`;
+    })
     .replace(/\*(.*?)\*/g, '<em>$1</em>');
 }
 ---
