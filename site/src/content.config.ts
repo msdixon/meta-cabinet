@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const rooms = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/rooms' }),
   schema: z.object({
     order: z.number(),
     index: z.string(),
