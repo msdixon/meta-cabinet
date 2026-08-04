@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import landing from '../data/landing.json';
 import transcript from '../data/transcript.json';
@@ -9,7 +9,7 @@ rooms.sort((a, b) => a.data.order - b.data.order);
 
 const roomsWithContent = await Promise.all(
   rooms.map(async (room) => {
-    const { Content } = await room.render();
+    const { Content } = await render(room);
     return { data: room.data, Content };
   })
 );
