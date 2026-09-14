@@ -13,6 +13,7 @@ const rooms = defineCollection({
     metaLine1: z.string().optional(),
     metaLine2: z.string().optional(),
     githubUrl: z.string().optional(),
+    liveUrl: z.string().optional(),
     anchor: z.string().optional(),
     rosterSections: z.array(z.object({
       label: z.string(),

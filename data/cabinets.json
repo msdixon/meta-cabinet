@@ -30,7 +30,7 @@
         "owner": "msdixon",
         "repo": "secret-cabinet",
         "branch": "main",
-        "manifest_path": "MANIFEST.md"
+        "manifest_path": "docs/MANIFEST.md"
       }
     }
   ],

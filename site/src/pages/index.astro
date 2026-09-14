@@ -129,6 +129,9 @@ function renderText(text: string) {
             <div class="room-meta">
               {data.metaLine1 && <>{data.metaLine1}<br /></>}
               {data.metaLine2 && <>{data.metaLine2}<br /></>}
+              {data.liveUrl && <>
+                <a href={data.liveUrl} target="_blank" rel="noopener">live ↗</a><br />
+              </>}
               {data.githubUrl && <a href={data.githubUrl} target="_blank" rel="noopener">github ↗</a>}
             </div>
           </div>
@@ -165,7 +168,10 @@ function renderText(text: string) {
     <div class="excerpt-section">
       <div class="excerpt-header">
         <h3>{transcript.headerLabel}</h3>
-        <span class="excerpt-source">{transcript.source}</span>
+        <span class="excerpt-source">
+          {transcript.source}
+          {transcript.sourceUrl && <> — <a href={transcript.sourceUrl} target="_blank" rel="noopener">read the full session ↗</a></>}
+        </span>
       </div>
       <div class="excerpt-body">
         <div class="excerpt-prompt">Source note: <em>{transcript.prompt}</em></div>

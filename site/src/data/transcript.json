@@ -1,22 +1,23 @@
 {
   "sectionTitle": "A session, in excerpt",
-  "sectionNote": "Secret-Cabin-et · three voices from one round",
-  "headerLabel": "Exhibit A — a secret lodge convenes on a research note",
-  "source": "Secret-Cabin-et · illustrative composite",
-  "prompt": "Mathers translated the Book of the Sacred Magic of Abramelin in 1898. It requires six months of preparation, absolute chastity, and culminates in contact with the Holy Guardian Angel — your own higher self, or something else entirely. Crowley attempted it at Boleskine. He left before finishing.",
+  "sectionNote": "Secret-Cabin-et · from a real, published session",
+  "headerLabel": "The lodge reads Waite on the Tarot",
+  "source": "Secret-Cabin-et · Reading Room, 2026-09-10",
+  "sourceUrl": "https://secret-cabinet-production.up.railway.app/reading-room/2026-09-10-the-tarot-embodies-symbolical-presentati-dae383",
+  "prompt": "Arthur Edward Waite's introduction to The Pictorial Key to the Tarot (1910), read aloud to five members of the lodge.",
   "entries": [
     {
-      "speaker": "Aleister Crowley",
-      "text": "He left because he understood, finally, what the operation was *for* — not the Angel, which is merely the hook — but the revelation of the Dweller on the Threshold, your own accumulated filth made suddenly legible. Mathers was too frightened to say this plainly. Abramelin is a mirror operation. The light it calls forth illuminates what was already in the room. I left because I had seen enough. *There is a difference between stopping and failing, though the view from outside is identical.*"
+      "speaker": "Frances Yates",
+      "text": "The word that stops me is \"true,\" Moina — not \"meanings,\" \"true.\" Waite writes as though he is restoring an ancient doctrine that the exoteric tradition merely corrupted. Michael Dummett established, with Sylvia Mann and Ronald Decker later completing the archive in *A Wicked Pack of Cards*, that no esoteric content attaches to these cards before Court de Gébelin's *Le Monde Primitif* in 1781 — the Visconti-Sforza trionfi of the 1440s are a card game, nothing more, and the Egyptian origin is Gébelin's invention, not a rediscovery."
     },
     {
-      "speaker": "Arthur Edward Waite",
-      "text": "This is precisely the kind of retrospective self-exculpation that renders Crowley's accounts so structurally unreliable as historical documents. The operation was not completed. That is a fact. What he experienced during the uncompleted attempt is unknowable; what he subsequently *narrates* about that experience is entirely consistent with a man who has spent forty years constructing an elaborate personal mythology to account for a single retreat. The distinction between the Dweller and the Angel exists in the architecture of the ritual. He abandoned the architecture before the distinction could become operative."
+      "speaker": "Moina Mathers",
+      "text": "Frances, I don't need the doctrine to be old to trust the deck — that was never my test. What I asked was narrower and stays standing after your point lands: did the hand that drew the Hanged Man understand what it was drawing, or was it copying a shape it had been told meant something. Antiquity is a costume. Craft is not. The water flowing upward past the branches in her Ten of Wands is not Gébelin's forgery. That she saw."
     },
     {
-      "speaker": "Teresa of Ávila",
-      "text": "Both of you are describing the same room from opposite ends of the corridor and refusing to acknowledge the corridor exists. The operation fails — or stops — at precisely the moment when what is being sought becomes indistinguishable from what is doing the seeking. This is not a flaw in the design. This is the design. The mystics who completed analogous operations did not complete them by *finishing.* They completed them by ceasing to require completion. Six months of preparation is preparation for release of the question, not acquisition of the answer. Boleskine was cold. *The cold is mentioned in every account. No one asks why.*"
+      "speaker": "Yeats",
+      "text": "Not his doctrine — no. Mine, perhaps, dressed as his. I said stepped clear of the Wheel because that is the shape my system needed there, and you have just shown me the foot still hasn't landed. That is a truer card than the one I was describing. I have done this before, given a fixed word to a thing that was still deciding itself. I am not always told so plainly."
     }
   ],
-  "note": "A researcher presents a text or a provocation, prompting a conversation in cross-talk in an imaginary secret lodge made of historical esotericists. Members disagree, fawn over each other, point out where their work brought them. New concepts and sources are surfaced. The researcher has new avenues to explore."
+  "note": "A provocation — an entry, an article, a primary source — goes to the room; the lodge reads it aloud and responds in genuine cross-talk, however many turns it takes. This session and others are public in the Reading Room."
 }

@@ -113,6 +113,7 @@ var config_default = defineConfig({
           { name: "metaLine1", label: "Meta line 1", type: "string" },
           { name: "metaLine2", label: "Meta line 2", type: "string" },
           { name: "githubUrl", label: "GitHub URL", type: "string" },
+          { name: "liveUrl", label: "Live URL", type: "string" },
           { name: "anchor", label: "HTML anchor id (optional)", type: "string" },
           {
             name: "rosterSections",
@@ -150,6 +151,7 @@ var config_default = defineConfig({
           { name: "sectionNote", label: "Section note", type: "string" },
           { name: "headerLabel", label: "Exhibit label", type: "string" },
           { name: "source", label: "Source note", type: "string" },
+          { name: "sourceUrl", label: "Source URL", type: "string" },
           { name: "prompt", label: "Source document excerpt", type: "string", ui: { component: "textarea" } },
           {
             name: "entries",
