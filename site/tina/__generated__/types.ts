@@ -332,6 +332,7 @@ export type Rooms = Node & Document & {
   metaLine1?: Maybe<Scalars['String']['output']>;
   metaLine2?: Maybe<Scalars['String']['output']>;
   githubUrl?: Maybe<Scalars['String']['output']>;
+  liveUrl?: Maybe<Scalars['String']['output']>;
   anchor?: Maybe<Scalars['String']['output']>;
   rosterSections?: Maybe<Array<Maybe<RoomsRosterSections>>>;
   body?: Maybe<Scalars['JSON']['output']>;
@@ -376,6 +377,7 @@ export type RoomsFilter = {
   metaLine1?: InputMaybe<StringFilter>;
   metaLine2?: InputMaybe<StringFilter>;
   githubUrl?: InputMaybe<StringFilter>;
+  liveUrl?: InputMaybe<StringFilter>;
   anchor?: InputMaybe<StringFilter>;
   rosterSections?: InputMaybe<RoomsRosterSectionsFilter>;
   body?: InputMaybe<RichTextFilter>;
@@ -406,6 +408,7 @@ export type Transcript = Node & Document & {
   sectionNote?: Maybe<Scalars['String']['output']>;
   headerLabel?: Maybe<Scalars['String']['output']>;
   source?: Maybe<Scalars['String']['output']>;
+  sourceUrl?: Maybe<Scalars['String']['output']>;
   prompt?: Maybe<Scalars['String']['output']>;
   entries?: Maybe<Array<Maybe<TranscriptEntries>>>;
   note?: Maybe<Scalars['String']['output']>;
@@ -424,6 +427,7 @@ export type TranscriptFilter = {
   sectionNote?: InputMaybe<StringFilter>;
   headerLabel?: InputMaybe<StringFilter>;
   source?: InputMaybe<StringFilter>;
+  sourceUrl?: InputMaybe<StringFilter>;
   prompt?: InputMaybe<StringFilter>;
   entries?: InputMaybe<TranscriptEntriesFilter>;
   note?: InputMaybe<StringFilter>;
@@ -599,6 +603,7 @@ export type RoomsMutation = {
   metaLine1?: InputMaybe<Scalars['String']['input']>;
   metaLine2?: InputMaybe<Scalars['String']['input']>;
   githubUrl?: InputMaybe<Scalars['String']['input']>;
+  liveUrl?: InputMaybe<Scalars['String']['input']>;
   anchor?: InputMaybe<Scalars['String']['input']>;
   rosterSections?: InputMaybe<Array<InputMaybe<RoomsRosterSectionsMutation>>>;
   body?: InputMaybe<Scalars['JSON']['input']>;
@@ -614,6 +619,7 @@ export type TranscriptMutation = {
   sectionNote?: InputMaybe<Scalars['String']['input']>;
   headerLabel?: InputMaybe<Scalars['String']['input']>;
   source?: InputMaybe<Scalars['String']['input']>;
+  sourceUrl?: InputMaybe<Scalars['String']['input']>;
   prompt?: InputMaybe<Scalars['String']['input']>;
   entries?: InputMaybe<Array<InputMaybe<TranscriptEntriesMutation>>>;
   note?: InputMaybe<Scalars['String']['input']>;
@@ -621,9 +627,9 @@ export type TranscriptMutation = {
 
 export type LandingPartsFragment = { __typename: 'Landing', mastheadKicker?: string | null, mastheadLocation?: string | null, mastheadMaintainedBy?: string | null, mastheadMaintainerUrl?: string | null, mastheadGithubUrl?: string | null, mastheadEst?: string | null, footerSig?: string | null, ledeAttribution?: { __typename: 'LandingLedeAttribution', prefix?: string | null, linkText?: string | null, linkUrl?: string | null, suffix?: string | null } | null, context?: { __typename: 'LandingContext', whatThisIsHeading?: string | null, whatThisIs?: Array<string | null> | null, collaborationHeading?: string | null, collaboration?: Array<string | null> | null, aiQuestionHeading?: string | null, aiQuestion?: Array<string | null> | null } | null, practiceGrid?: Array<{ __typename: 'LandingPracticeGrid', heading?: string | null, body?: string | null } | null> | null, footerLinks?: Array<{ __typename: 'LandingFooterLinks', label?: string | null, url?: string | null } | null> | null };
 
-export type RoomsPartsFragment = { __typename: 'Rooms', order: number, index?: string | null, titleMain: string, titleSuffix?: string | null, tag?: string | null, sub?: string | null, metaLine1?: string | null, metaLine2?: string | null, githubUrl?: string | null, anchor?: string | null, body?: any | null, rosterSections?: Array<{ __typename: 'RoomsRosterSections', label?: string | null, members?: Array<{ __typename: 'RoomsRosterSectionsMembers', name?: string | null, role?: string | null } | null> | null } | null> | null };
+export type RoomsPartsFragment = { __typename: 'Rooms', order: number, index?: string | null, titleMain: string, titleSuffix?: string | null, tag?: string | null, sub?: string | null, metaLine1?: string | null, metaLine2?: string | null, githubUrl?: string | null, liveUrl?: string | null, anchor?: string | null, body?: any | null, rosterSections?: Array<{ __typename: 'RoomsRosterSections', label?: string | null, members?: Array<{ __typename: 'RoomsRosterSectionsMembers', name?: string | null, role?: string | null } | null> | null } | null> | null };
 
-export type TranscriptPartsFragment = { __typename: 'Transcript', sectionTitle?: string | null, sectionNote?: string | null, headerLabel?: string | null, source?: string | null, prompt?: string | null, note?: string | null, entries?: Array<{ __typename: 'TranscriptEntries', speaker?: string | null, text?: string | null } | null> | null };
+export type TranscriptPartsFragment = { __typename: 'Transcript', sectionTitle?: string | null, sectionNote?: string | null, headerLabel?: string | null, source?: string | null, sourceUrl?: string | null, prompt?: string | null, note?: string | null, entries?: Array<{ __typename: 'TranscriptEntries', speaker?: string | null, text?: string | null } | null> | null };
 
 export type LandingQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -649,7 +655,7 @@ export type RoomsQueryVariables = Exact<{
 }>;
 
 
-export type RoomsQuery = { __typename?: 'Query', rooms: { __typename: 'Rooms', id: string, order: number, index?: string | null, titleMain: string, titleSuffix?: string | null, tag?: string | null, sub?: string | null, metaLine1?: string | null, metaLine2?: string | null, githubUrl?: string | null, anchor?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, rosterSections?: Array<{ __typename: 'RoomsRosterSections', label?: string | null, members?: Array<{ __typename: 'RoomsRosterSectionsMembers', name?: string | null, role?: string | null } | null> | null } | null> | null } };
+export type RoomsQuery = { __typename?: 'Query', rooms: { __typename: 'Rooms', id: string, order: number, index?: string | null, titleMain: string, titleSuffix?: string | null, tag?: string | null, sub?: string | null, metaLine1?: string | null, metaLine2?: string | null, githubUrl?: string | null, liveUrl?: string | null, anchor?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, rosterSections?: Array<{ __typename: 'RoomsRosterSections', label?: string | null, members?: Array<{ __typename: 'RoomsRosterSectionsMembers', name?: string | null, role?: string | null } | null> | null } | null> | null } };
 
 export type RoomsConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -661,14 +667,14 @@ export type RoomsConnectionQueryVariables = Exact<{
 }>;
 
 
-export type RoomsConnectionQuery = { __typename?: 'Query', roomsConnection: { __typename?: 'RoomsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'RoomsConnectionEdges', cursor: string, node?: { __typename: 'Rooms', id: string, order: number, index?: string | null, titleMain: string, titleSuffix?: string | null, tag?: string | null, sub?: string | null, metaLine1?: string | null, metaLine2?: string | null, githubUrl?: string | null, anchor?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, rosterSections?: Array<{ __typename: 'RoomsRosterSections', label?: string | null, members?: Array<{ __typename: 'RoomsRosterSectionsMembers', name?: string | null, role?: string | null } | null> | null } | null> | null } | null } | null> | null } };
+export type RoomsConnectionQuery = { __typename?: 'Query', roomsConnection: { __typename?: 'RoomsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'RoomsConnectionEdges', cursor: string, node?: { __typename: 'Rooms', id: string, order: number, index?: string | null, titleMain: string, titleSuffix?: string | null, tag?: string | null, sub?: string | null, metaLine1?: string | null, metaLine2?: string | null, githubUrl?: string | null, liveUrl?: string | null, anchor?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, rosterSections?: Array<{ __typename: 'RoomsRosterSections', label?: string | null, members?: Array<{ __typename: 'RoomsRosterSectionsMembers', name?: string | null, role?: string | null } | null> | null } | null> | null } | null } | null> | null } };
 
 export type TranscriptQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type TranscriptQuery = { __typename?: 'Query', transcript: { __typename: 'Transcript', id: string, sectionTitle?: string | null, sectionNote?: string | null, headerLabel?: string | null, source?: string | null, prompt?: string | null, note?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, entries?: Array<{ __typename: 'TranscriptEntries', speaker?: string | null, text?: string | null } | null> | null } };
+export type TranscriptQuery = { __typename?: 'Query', transcript: { __typename: 'Transcript', id: string, sectionTitle?: string | null, sectionNote?: string | null, headerLabel?: string | null, source?: string | null, sourceUrl?: string | null, prompt?: string | null, note?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, entries?: Array<{ __typename: 'TranscriptEntries', speaker?: string | null, text?: string | null } | null> | null } };
 
 export type TranscriptConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -680,7 +686,7 @@ export type TranscriptConnectionQueryVariables = Exact<{
 }>;
 
 
-export type TranscriptConnectionQuery = { __typename?: 'Query', transcriptConnection: { __typename?: 'TranscriptConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'TranscriptConnectionEdges', cursor: string, node?: { __typename: 'Transcript', id: string, sectionTitle?: string | null, sectionNote?: string | null, headerLabel?: string | null, source?: string | null, prompt?: string | null, note?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, entries?: Array<{ __typename: 'TranscriptEntries', speaker?: string | null, text?: string | null } | null> | null } | null } | null> | null } };
+export type TranscriptConnectionQuery = { __typename?: 'Query', transcriptConnection: { __typename?: 'TranscriptConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'TranscriptConnectionEdges', cursor: string, node?: { __typename: 'Transcript', id: string, sectionTitle?: string | null, sectionNote?: string | null, headerLabel?: string | null, source?: string | null, sourceUrl?: string | null, prompt?: string | null, note?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, entries?: Array<{ __typename: 'TranscriptEntries', speaker?: string | null, text?: string | null } | null> | null } | null } | null> | null } };
 
 export const LandingPartsFragmentDoc = gql`
     fragment LandingParts on Landing {
@@ -732,6 +738,7 @@ export const RoomsPartsFragmentDoc = gql`
   metaLine1
   metaLine2
   githubUrl
+  liveUrl
   anchor
   rosterSections {
     __typename
@@ -752,6 +759,7 @@ export const TranscriptPartsFragmentDoc = gql`
   sectionNote
   headerLabel
   source
+  sourceUrl
   prompt
   entries {
     __typename

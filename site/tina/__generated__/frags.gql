@@ -46,6 +46,7 @@ fragment RoomsParts on Rooms {
   metaLine1
   metaLine2
   githubUrl
+  liveUrl
   anchor
   rosterSections {
     __typename
@@ -65,6 +66,7 @@ fragment TranscriptParts on Transcript {
   sectionNote
   headerLabel
   source
+  sourceUrl
   prompt
   entries {
     __typename
