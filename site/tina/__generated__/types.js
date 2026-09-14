@@ -55,6 +55,7 @@ export const RoomsPartsFragmentDoc = gql`
   metaLine1
   metaLine2
   githubUrl
+  liveUrl
   anchor
   rosterSections {
     __typename
@@ -75,6 +76,7 @@ export const TranscriptPartsFragmentDoc = gql`
   sectionNote
   headerLabel
   source
+  sourceUrl
   prompt
   entries {
     __typename

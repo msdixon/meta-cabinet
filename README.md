@@ -44,7 +44,7 @@ The members page (`/members`) is client-side only — member data lives in `publ
 |---|---|---|
 | Eastern Cabin'ét | `msdixon/wagscrum` | `cabin-et/MANIFEST.md` |
 | Journal Cabin'ét | `msdixon/dossier-placard` | `MANIFEST.md` |
-| Secret-Cabin-et | `msdixon/secret-cabinet` | `MANIFEST.md` |
+| Secret-Cabin-et | `msdixon/secret-cabinet` | `docs/MANIFEST.md` |
 
 The Journal and Secret manifests are new — see `prs/` for the drafts to land in each repo.
 

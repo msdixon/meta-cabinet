@@ -214,6 +214,7 @@ type Rooms implements Node & Document {
   metaLine1: String
   metaLine2: String
   githubUrl: String
+  liveUrl: String
   anchor: String
   rosterSections: [RoomsRosterSections]
   body: JSON
@@ -258,6 +259,7 @@ input RoomsFilter {
   metaLine1: StringFilter
   metaLine2: StringFilter
   githubUrl: StringFilter
+  liveUrl: StringFilter
   anchor: StringFilter
   rosterSections: RoomsRosterSectionsFilter
   body: RichTextFilter
@@ -284,6 +286,7 @@ type Transcript implements Node & Document {
   sectionNote: String
   headerLabel: String
   source: String
+  sourceUrl: String
   prompt: String
   entries: [TranscriptEntries]
   note: String
@@ -302,6 +305,7 @@ input TranscriptFilter {
   sectionNote: StringFilter
   headerLabel: StringFilter
   source: StringFilter
+  sourceUrl: StringFilter
   prompt: StringFilter
   entries: TranscriptEntriesFilter
   note: StringFilter
@@ -405,6 +409,7 @@ input RoomsMutation {
   metaLine1: String
   metaLine2: String
   githubUrl: String
+  liveUrl: String
   anchor: String
   rosterSections: [RoomsRosterSectionsMutation]
   body: JSON
@@ -420,6 +425,7 @@ input TranscriptMutation {
   sectionNote: String
   headerLabel: String
   source: String
+  sourceUrl: String
   prompt: String
   entries: [TranscriptEntriesMutation]
   note: String
