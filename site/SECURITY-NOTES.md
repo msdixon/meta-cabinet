@@ -34,3 +34,15 @@ Full audit context: [PR #4](https://github.com/msdixon/meta-cabinet/pull/4)
 (closed 14 of the original 19 findings) and PR #1 (2026-08-04), which first
 flagged this residual set as "no forward fix published upstream yet — not
 fixable from this repo."
+
+**Recheck — 2026-09-14**: still blocked, no action taken. `tinacms` has
+published since (latest is now `3.14.0`, up from `3.12.1`), but
+`npm view tinacms dependencies.react-router-dom` and `npm view @tinacms/app
+dependencies.react-router-dom` both still resolve to `^6.30.3` — the pin
+described above hasn't moved. `npm audit` in `site/` still offers only
+`npm audit fix --force`, which downgrades to `tinacms@1.5.5`, confirming
+this is the same non-viable path as before. The advice above (don't force
+an `overrides` entry without testing `/admin`; re-check on future `tinacms`
+bumps) stands unchanged. Note `npm audit` currently reports other, unrelated
+findings (`astro`, `js-yaml`, `qs`, `sharp`, `svgo`) alongside this one —
+those are out of scope for this note and tracked separately.
